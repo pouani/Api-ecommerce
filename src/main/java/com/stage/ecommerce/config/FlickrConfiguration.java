@@ -23,7 +23,7 @@ public class FlickrConfiguration {
     private String appSecret;
 
     //methode pour générer le appKey et le appSecret
-    /*@Bean
+    /*
     public Flickr getFlickr() throws IOException, ExecutionException, InterruptedException, FlickrException {
         Flickr flickr =  new Flickr(apiKey,apiSecret,new REST());
 
