@@ -28,8 +28,9 @@ public interface IProduitController {
             @io.swagger.annotations.ApiResponse(code = 404, message = "Aucun produit n'existe dans la BDD avec l'ID fourni")
     })
     ProduitDto findById(@PathVariable("idProduit") Integer id);
-    @GetMapping(value = APP_ROOT + "/products/{codeProduit}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Rechercher un produit par CODE", notes = "Cette methode permet de chercher un produit par son CODE", response = ProduitDto.class)
+    @GetMapping(value = APP_ROOT + "/products/byCode/{codeProduit}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Rechercher un produit par CODE", notes = "Cette methode permet de chercher un produit par son CODE",
+            responseContainer = "List<ProduitDto>")
     @ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "L'objet produit a ete trouve dans la BDD"),
             @io.swagger.annotations.ApiResponse(code = 404, message = "Aucun produit n'existe dans la BDD avec le CODE fourni")

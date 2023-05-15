@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.swing.*;
 
 @Data
 @Builder
@@ -16,12 +15,10 @@ import javax.swing.*;
 @Table(name = "Paiement")
 public class Paiement extends AbstractEntity {
 
-
     @Column(name = "modeldepaiement")
     private String modeldepaiement;
 
     @Column(name = "codedepaiement")
     private String codedepaiement;
-
 
 }
