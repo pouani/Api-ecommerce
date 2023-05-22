@@ -57,6 +57,8 @@ public class CommandeService implements ICommandeService {
             log.error("Commande invalide");
             throw new InvalidEntityException("La commande n'est pas valide", ErrorCodes.COMMANDE_NOT_VALID, errors);
         }
+
+        //verification si le client existe
         Optional<Client> client = clientRepository.findById(dto.getClient().getId());
         if(client.isEmpty()){
             log.warn("Client with ID {} not found in DB", dto.getClient().getId());
@@ -73,7 +75,7 @@ public class CommandeService implements ICommandeService {
                         produitErrors.add("Le produit avec l'ID = " + cmdP.getProduit().getId() + "n'existe pas");
                    }
                }else{
-                   produitErrors.add("Impossible d'enregistrer une commande avec un article null");
+                   produitErrors.add("Impossible d'enregistrer une commande avec un produit null");
                }
 
            });

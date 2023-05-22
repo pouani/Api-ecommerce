@@ -51,7 +51,7 @@ public class CategorieService implements ICategorieService {
     }
 
     @Override
-    public CategorieDto findByCodeCategoreie(String codeCategorie) {
+    public CategorieDto findByCodeCategorie(String codeCategorie) {
         if(!StringUtils.hasLength(codeCategorie)) {
             log.error("code invalide");
             return null;

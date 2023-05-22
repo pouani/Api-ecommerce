@@ -1,10 +1,10 @@
 package com.stage.ecommerce.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -17,21 +17,29 @@ import java.time.Instant;
 @NoArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-
 public class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
 
-    @CreatedDate
+    //@CreatedDate
     @Column(name = "creationDate")
-    @JsonIgnore
     private Instant creationDate;
 
-    @LastModifiedDate
+    //@LastModifiedDate
     @Column (name = "lastModifiedData")
-    @JsonIgnore
     private Instant lastModifiedData;
+
+    @PrePersist
+    void prePersist(){
+        creationDate = Instant.now();
+        lastModifiedData = Instant.now();
+    }
+
+    @PreUpdate
+    void preUpdate(){
+        lastModifiedData = Instant.now();
+    }
 }
 
 

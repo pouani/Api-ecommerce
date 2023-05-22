@@ -16,7 +16,7 @@ public class ProduitValidetor {
             errors.add("Veuillez renseigner le nom du produit");
         }
 
-        if (produitDto == null || !StringUtils.hasLength(produitDto.getPrixproduit())) {
+        if (produitDto == null ) {
             errors.add("Veuillez renseigner le prix du produit");
         }
 

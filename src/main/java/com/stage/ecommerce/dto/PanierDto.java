@@ -12,10 +12,11 @@ import java.util.List;
 public class PanierDto {
 
     private Integer id;
-    private String produitajoute;
-    private String quantiteajoute;
+    private String nom;
+
     @JsonIgnore
     private List<ProduitDto> produit;
+
     private List<PanierproduitDto> panierproduits;
 
 
@@ -27,8 +28,7 @@ public class PanierDto {
 
         return PanierDto.builder()
                 .id(panier.getId())
-                .produitajoute(panier.getProduitajoute())
-                .quantiteajoute(panier.getQuantiteajoute())
+                .nom(panier.getNom())
                 .build();
     }
 
@@ -39,8 +39,7 @@ public class PanierDto {
         }
         Panier panier = new Panier();
         panier.setId(panierDto.getId());
-        panier.setProduitajoute(panierDto.getProduitajoute());
-        panier.setQuantiteajoute(panierDto.getQuantiteajoute());
+        panier.setNom(panierDto.getNom());
 
         return panier;
 
