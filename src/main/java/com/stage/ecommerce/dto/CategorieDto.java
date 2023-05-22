@@ -3,12 +3,14 @@ package com.stage.ecommerce.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stage.ecommerce.model.Categorie;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
-@Data
 @Builder
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategorieDto {
     private Integer id;
     private String nomCategorie;

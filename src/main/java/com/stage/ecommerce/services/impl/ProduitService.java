@@ -35,6 +35,20 @@ public class ProduitService implements IProduitService {
             log.error("Produit invalid {}", dto);
             throw new InvalidEntityException("le produit n'est pas valide", ErrorCodes.PRODUIT_NOT_VALID, errors);
         }
+
+        //verifier si le produit existe deja
+//        Optional<Produit> produitByCode = produitRepository.findProduitByCodeProduit(dto.getCodeProduit());
+//        if(produitByCode.isPresent()){
+//            log.error("Produit existe deja {}", dto.getCodeProduit());
+//            throw new InvalidEntityException("le produit existe deja");
+//        }
+
+        //vérifier si l'id de la categorie existe
+        Integer categorieId = dto.getCategorie().getId();
+        if(categorieId == null && !produitRepository.existsById(categorieId)){
+            log.error("Categorie id is null {}", dto);
+            throw new InvalidEntityException("l'id de la categorie n'est pas valide", ErrorCodes.CATEGORIE_NOT_VALID);
+        }
         return ProduitDto.fromEntity(produitRepository.save(ProduitDto.toEntity(dto)));
     }
 

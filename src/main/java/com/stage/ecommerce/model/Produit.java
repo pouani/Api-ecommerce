@@ -18,23 +18,29 @@ public class Produit extends AbstractEntity {
     private String nomproduit;
 
    @Column(name = "prixproduit")
-    private String prixproduit;
+    private Integer prixproduit;
 
    @Column(name = "codeproduit")
     private String codeProduit;
 
-   @ManyToOne
-   @JoinColumn(name = "idCategorie")
-    private Categorie categorie;
+   @Column(name = "description")
+   private String description;
+
+   @Column(name = "photo")
+   private String photo;
 
    @ManyToOne
-   @JoinColumn(name = "idpanier")
-   private Panier panier;
+   @JoinColumn(name = "idCategorie")
+   private Categorie categorie;
+
+//   @ManyToOne
+//   @JoinColumn(name = "idpanier")
+//   private Panier panier;
 
    @OneToMany(mappedBy = "panier")
    private List<Panierproduit> panierproduits;
 
-    @OneToMany(mappedBy = "produit")
+   @OneToMany(mappedBy = "produit")
    private List<CommandeProduit> commandeProduits;
 
 }

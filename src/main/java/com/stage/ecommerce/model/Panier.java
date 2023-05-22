@@ -2,7 +2,6 @@ package com.stage.ecommerce.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,12 +16,7 @@ import java.util.List;
 @Table(name = "Panier")
 public class Panier extends AbstractEntity {
 
-    @Column(name = "produitajoute")
-    private String produitajoute;
-
-    @Column(name = "quantiteajoute")
-    private String quantiteajoute;
-
+    private String nom;
     //@OneToMany(mappedBy = "produit")
     //private List<Produit> produit;
 
