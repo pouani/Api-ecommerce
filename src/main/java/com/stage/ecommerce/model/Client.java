@@ -33,6 +33,8 @@ public class Client extends AbstractEntity {
     @OneToMany(mappedBy = "client")
     private List<Commande> commande;
 
+    @Column(name = "photo")
+    private String photo;
 
     Client(Integer id, Instant creationDate, Instant lastModifiedData) {
         super(id, creationDate, lastModifiedData);

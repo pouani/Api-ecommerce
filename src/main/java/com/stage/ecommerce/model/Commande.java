@@ -26,7 +26,7 @@ public class Commande extends AbstractEntity {
     private String produitcommande;
 
     @Column(name = "statutcommande")
-    private String statutcommande;
+    private EtatCommande statutcommande;
 
     @ManyToOne
     @JoinColumn (name = "idclient")

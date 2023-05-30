@@ -30,6 +30,7 @@ public class CategorieDto {
                .id(categorie.getId())
                .nomCategorie(categorie.getNomCategorie())
                .description(categorie.getDescription())
+               .codeCategorie(categorie.getCodeCategorie())
                .build();
    }
 
@@ -43,6 +44,7 @@ public class CategorieDto {
        categorie.setId(categorieDto.getId());
        categorie.setNomCategorie(categorieDto.getNomCategorie());
        categorie.setDescription(categorieDto.getDescription());
+       categorie.setCodeCategorie(categorieDto.getCodeCategorie());
 
        return categorie;
    }

@@ -1,7 +1,9 @@
 package com.stage.ecommerce.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stage.ecommerce.model.Commande;
+import com.stage.ecommerce.model.EtatCommande;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,15 +19,17 @@ public class CommandeDto {
     private String codeCommande;
     private String datecommande;
     private String produitcommande;
-    private String statutcommande;
+    private EtatCommande statutcommande;
 
     private ClientDto client;
 
 //    @JsonIgnore
 //    private ProduitDto produit;
 
+    @JsonIgnore
     private PanierDto panier;
 
+    @JsonIgnore
     private List<CommandeProduitDto> commandeProduit;
 
 
@@ -59,6 +63,10 @@ public class CommandeDto {
         commande.setStatutcommande(commandeDto.getStatutcommande());
 
         return commande;
+    }
+
+    public boolean isCommandeLivre(){
+        return EtatCommande.LIVREE.equals(this.statutcommande);
     }
 }
 

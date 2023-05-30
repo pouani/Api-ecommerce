@@ -3,9 +3,11 @@ package com.stage.ecommerce.dto;
 import com.stage.ecommerce.model.Utilisateur;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
+
 @Data
 @Builder
-
 public class UtilisateurDto {
 
     private Integer id;
@@ -13,6 +15,10 @@ public class UtilisateurDto {
     private String prenomutilisateur;
     private String email;
     private String motsdepasse;
+    private String photo;
+
+
+    private List<UtilisateurRoleDto> utilisateurRole;
 
 
     public static UtilisateurDto fromEntity(Utilisateur utilisateur){
@@ -27,6 +33,7 @@ public class UtilisateurDto {
                 .prenomutilisateur(utilisateur.getPrenomutilisateur())
                 .email(utilisateur.getEmail())
                 .motsdepasse(utilisateur.getMotsdepasse())
+                .photo(utilisateur.getPhoto())
                 .build();
     }
 
@@ -40,7 +47,8 @@ public class UtilisateurDto {
         utilisateur.setNomutilisateur(utilisateurDto.getNomutilisateur());
         utilisateur.setPrenomutilisateur(utilisateurDto.getPrenomutilisateur());
         utilisateur.setEmail(utilisateurDto.getEmail());
-        utilisateur.setMotsdepasse(utilisateur.getMotsdepasse());
+        utilisateur.setMotsdepasse(utilisateurDto.getMotsdepasse());
+        utilisateur.setPhoto(utilisateurDto.getPhoto());
 
         return utilisateur;
 

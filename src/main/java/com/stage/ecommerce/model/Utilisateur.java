@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Data
 @Builder
@@ -27,7 +29,11 @@ public class Utilisateur extends AbstractEntity {
     @Column(name = "motsdepasse")
     private String motsdepasse;
 
+    @Column(name = "photo")
+    private String photo;
 
+    @OneToMany(mappedBy = "utilisateur")
+    private List<UtilisateurRole> utilisateurRoles;
 
 
 

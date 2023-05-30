@@ -6,5 +6,5 @@ import java.io.InputStream;
 
 public interface IFlickrPhotoService {
 
-    String SavePhoto(InputStream photo, String title) throws FlickrException;
+    String savePhoto(InputStream photo, String title) throws FlickrException;
 }

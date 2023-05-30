@@ -12,5 +12,7 @@ public interface IUtilisateurService {
 
     List<UtilisateurDto> findAll();
 
+    UtilisateurDto findByEmail(String email);
+
     void delete(Integer id);
 }

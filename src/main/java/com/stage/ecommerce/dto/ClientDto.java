@@ -16,6 +16,8 @@ public class ClientDto {
     private String prenomclient;
     private String telephoneclient;
     private String adresseClient;
+    private String photo;
+
     @JsonIgnore
     private List<CommandeDto> commande;
 
@@ -32,6 +34,7 @@ public class ClientDto {
                 .prenomclient(client.getPrenomclient())
                 .telephoneclient(client.getTelephoneclient())
                 .adresseClient(client.getAdresseClient())
+                .photo(client.getPhoto())
                 .build();
     }
 
@@ -46,6 +49,7 @@ public class ClientDto {
         client.setNomclient(clientDto.getNomclient());
         client.setPrenomclient(clientDto.getPrenomclient());
         client.setAdresseClient(clientDto.getAdresseClient());
+        client.setPhoto(clientDto.getPhoto());
 
         return client;
     }

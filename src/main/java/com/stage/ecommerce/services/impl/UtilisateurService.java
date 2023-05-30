@@ -1,6 +1,7 @@
 package com.stage.ecommerce.services.impl;
 
 import com.stage.ecommerce.dto.UtilisateurDto;
+import com.stage.ecommerce.exception.EntityNotFoundException;
 import com.stage.ecommerce.exception.ErrorCodes;
 import com.stage.ecommerce.exception.InvalidEntityException;
 import com.stage.ecommerce.model.Utilisateur;
@@ -53,6 +54,16 @@ public class UtilisateurService implements IUtilisateurService {
         return utilisateurRepository.findAll().stream()
                 .map(UtilisateurDto::fromEntity)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public UtilisateurDto findByEmail(String email) {
+        return utilisateurRepository.findUtilisateurByEmail(email)
+                .map(UtilisateurDto::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucun n'utilisateur avec l'email = " + email + "n'a ete trouve dans la BDD",
+                        ErrorCodes.UTILISATEUR_NOT_FOUND
+                ));
     }
 
     @Override
